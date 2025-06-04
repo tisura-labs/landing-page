@@ -4,20 +4,20 @@ import Container from "./Container.astro"
 
 <div class="relative" id="home">
     <div aria-hidden="true" class="absolute inset-0">
-        <div class="blur-[106px] bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 dark:from-blue-900 dark:via-blue-800 dark:to-blue-700 h-full w-full"></div>
+      <div class="h-full w-full bg-hero-light dark:bg-hero-dark opacity-90 blur-2xl"></div>
     </div>
 
     <Container>
         <div class="relative z-10 pt-64 ml-auto">
             <div class="lg:w-2/3 text-center mx-auto">
-                <h1 class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">
-                  Certify Internet data with <span class="text-primary dark:text-primary">Tisura</span>
+                <h1 class="text-gray-800 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">
+                    Certify Internet data with <span class="text-primary dark:text-blue-400">Tisura</span>
                 </h1>
-                <div class="mt-12"></div>
-                <p class="mt-6 text-gray-700 dark:text-gray-300 text-lg md:text-xl font-normal">
-                  Verify the origin of your users’ data — automatically and cryptographically.
+
+                <p class="mt-6 text-gray-700 dark:text-light-muted text-lg md:text-xl font-normal">
+                    Verify the origin of your users’ data — automatically and cryptographically.
                 </p>
-                <div class="mt-36"></div>
+                 <div class="mt-36"></div>
 
                 <!-- CTA Buttons -->
                 <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -29,17 +29,14 @@ import Container from "./Container.astro"
                     </a>
                     <a
                         href="/#use-cases"
-                        class="text-primary text-base font-medium hover:text-white transition"
+                        class="text-primary dark:text-light-muted hover:text-white font-medium text-base"
                     >
                         See Use Cases
                     </a>
                 </div>
 
-                <div class="mt-36"></div>
-                <div class="mt-10 flex justify-center">
-                  <span class="text-4xl font-extrabold animate-bounce text-primary dark:text-primary">
-                    ↓
-                  </span>
+                <div class="mt-48 flex justify-center">
+                    <span class="text-4xl font-extrabold animate-bounce text-primary">↓</span>
                 </div>
                 <div class="mt-24"></div>
             </div>

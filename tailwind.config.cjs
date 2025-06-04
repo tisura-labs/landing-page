@@ -11,6 +11,16 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
+    extend: {
+      textColor: {
+        'light-muted': '#a8c5ff', // Light desaturated blue for dark mode
+        'dark-muted': '#93a3b1',  // Softer text on dark
+      },
+      backgroundImage: {
+        'hero-light': 'radial-gradient(ellipse at center, #dbeafe 0%, #bfdbfe 40%, #f8fafc 100%)',
+        'hero-dark': 'radial-gradient(ellipse at center, #1e3a8a, #0f172a)',
+      }
+    },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,
