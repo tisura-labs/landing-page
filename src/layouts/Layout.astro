@@ -5,38 +5,34 @@ import AppHeader from "../components/AppHeader.astro";
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
-        <meta name="description" content="Tisura - Certify Internet data" />
-        <title>Tisura</title>
-        <AstroFont
-            config={[
-                {
-                    src: [],
-                    name: "Urbanist",
-                    preload: true,
-                    display: "swap",
-                    selector: "html",
-                    fallback: "sans-serif",
-                    googleFontsURL: 'https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap',
-                },
-            ]}
-        />
-    </head>
-    <body class="bg-white dark:bg-gray-900">
-        <AppHeader />
-        <slot />
-    </body>
-</html>
-<style>
-    html {
-        scroll-behavior: smooth;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Tisura - Certify Internet data" />
+    <title>Tisura</title>
 
-    body {
-        margin: 0;
-    }
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <AstroFont config={[{ src: [], name: "Urbanist", preload: true, display: "swap",
+      selector: "html", fallback: "sans-serif",
+      googleFontsURL: 'https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap' }]} />
+
+    <slot name="head" />
+  </head>
+
+  <body class="min-h-dvh antialiased bg-white text-slate-900 dark:bg-gray-900 dark:text-slate-100"
+        style="padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);">
+    <AppHeader />
+    <main class="w-full">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
 </style>
