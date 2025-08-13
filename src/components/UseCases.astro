@@ -1,0 +1,49 @@
+---
+import Container from "./Container.astro"
+---
+
+<div class="text-gray-600 dark:text-gray-300" id="use-cases">
+  <Container>
+    <div class="mb-20 space-y-4 px-6 md:px-0">
+      <h2 class="text-center text-2xl font-bold text-gray-800 dark:text-white md:text-4xl">
+        Use Cases
+      </h2>
+    </div>
+
+    <!-- Responsive: 1 col mobile, 2 cols tablet, 3 cols desktop -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-0">
+
+      <div class="flex flex-col h-full p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+        <div class="flex flex-col gap-1">
+          <h6 class="text-lg font-medium text-gray-700 dark:text-white">🏡 Rental Certifier</h6>
+          <span class="text-sm text-gray-500 dark:text-gray-400">Tamper-Proof Rental Applications</span>
+        </div>
+        <p class="mt-6">
+          Tisura enables rental platforms to verify that submitted documents (like pay slips or tax notices) truly originate from the trusted data sources and haven’t been altered. This prevents fraud and accelerates trust in the application process.
+        </p>
+      </div>
+
+      <div class="flex flex-col h-full p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+        <div class="flex flex-col gap-1">
+          <h6 class="text-lg font-medium text-gray-700 dark:text-white">💰 Loan Certifier</h6>
+          <span class="text-sm text-gray-500 dark:text-gray-400">Trusted Docs for Smarter Lending</span>
+        </div>
+        <p class="mt-6">
+          Lenders use Tisura to ensure that key financial documents — bank statements, tax records, ID proofs — are authentic and sourced in real time. This reduces risk and boosts confidence in digital loan applications.
+        </p>
+      </div>
+
+      <div class="flex flex-col h-full p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+        <div class="flex flex-col gap-1">
+          <h6 class="text-lg font-medium text-gray-700 dark:text-white">🪂 Trustless Airdrop Launchpad</h6>
+          <span class="text-sm text-gray-500 dark:text-gray-400">Provable, Zero-Trust Token Distribution</span>
+        </div>
+        <p class="mt-6">
+          The Trustless Airdrop Launchpad lets anyone run an airdrop where eligibility is provable and verifiable by all — no backend trust required.
+          Claimers generate zero-knowledge proofs from cryptographically certified GitHub data.
+        </p>
+      </div>
+
+    </div>
+  </Container>
+</div>
