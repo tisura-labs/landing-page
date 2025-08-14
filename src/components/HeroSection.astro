@@ -2,44 +2,47 @@
 import Container from "./Container.astro"
 ---
 
-<div class="relative" id="home">
-    <div aria-hidden="true" class="absolute inset-0">
-      <div class="h-full w-full bg-hero-light dark:bg-hero-dark opacity-90 blur-2xl"></div>
-    </div>
+<section id="home" class="relative min-h-[100svh] md:min-h-screen">
+  <!-- background BELOW everything -->
+  <div aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none">
+    <div class="h-full w-full bg-hero-light dark:bg-hero-dark opacity-90 blur-2xl"></div>
+  </div>
 
-    <Container>
-        <div class="relative z-10 pt-64 ml-auto">
-            <div class="lg:w-2/3 text-center mx-auto">
-                <h1 class="text-gray-800 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">
-                    Certify Internet data with <span class="text-primary dark:text-blue-400">Tisura</span>
-                </h1>
+  <Container>
+    <!-- keep z-10 here (not on Container) -->
+    <div class="relative z-10 pt-64 ml-auto">
+      <div class="lg:w-2/3 text-center mx-auto">
+        <h1 class="text-gray-800 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">
+          Certify Internet data with <span class="text-primary dark:text-blue-400">Tisura</span>
+        </h1>
 
-                <p class="mt-6 text-gray-700 dark:text-light-muted text-lg md:text-xl font-normal">
-                    Verify the origin of your users’ data — automatically and cryptographically.
-                </p>
-                 <div class="mt-36"></div>
+        <p class="mt-6 text-gray-700 dark:text-light-muted text-lg md:text-xl font-normal">
+          Verify origin and content of your users’ data - automatically and cryptographically.
+        </p>
 
-                <!-- CTA Buttons -->
-                <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a
-                        href="https://tally.so/r/mKZKaV"
-                        class="inline-block rounded-full bg-primary px-6 py-3 text-white font-medium text-lg transition hover:scale-105 hover:shadow-lg"
-                    >
-                        Request a Demo
-                    </a>
-                    <a
-                        href="/#solutions"
-                        class="text-primary dark:text-light-muted hover:text-white font-medium text-base"
-                    >
-                        See Solutions
-                    </a>
-                </div>
-
-                <div class="mt-48 flex justify-center">
-                    <span class="text-4xl font-extrabold animate-bounce text-primary">↓</span>
-                </div>
-                <div class="mt-24"></div>
-            </div>
+        <!-- CTA Buttons -->
+        <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-4">
+          <a
+            href="https://tally.so/r/mKZKaV"
+            class="inline-block rounded-full bg-primary px-6 py-3 text-white font-medium text-lg transition hover:scale-105 hover:shadow-lg"
+          >
+            Request a Demo
+          </a>
+          <a
+            href="/#solutions"
+            class="text-primary dark:text-light-muted hover:text-white font-medium text-base"
+          >
+            See Solutions
+          </a>
         </div>
-    </Container>
-</div>
+      </div>
+    </div>
+  </Container>
+
+  <!-- arrow pinned to bottom, same color as before -->
+  <a href="/#solutions"
+     class="absolute bottom-24 left-1/2 -translate-x-1/2 text-primary text-4xl font-extrabold animate-bounce"
+     aria-label="Scroll to Solutions">
+    ↓
+  </a>
+</section>
