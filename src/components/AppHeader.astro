@@ -10,25 +10,21 @@ const links = [
 ---
 
 <header>
-  <!-- keep the original blue/blur hero color -->
-  <div class="absolute inset-0 -z-10 h-32 bg-hero-light dark:bg-hero-dark opacity-90 blur-xl"></div>
-
-  <!-- keep your absolute nav so it visually blends with the hero -->
-  <nav class="absolute z-50 w-full pt-10 lg:border-transparent">
+  <nav class="absolute z-50 w-full pt-12 lg:border-transparent">
     <Container>
       <div class="flex items-center justify-center w-full relative">
 
-        <!-- Left: Logo (unchanged) -->
+        <!-- Left: Logo -->
         <div class="absolute left-0 flex items-center">
           <a href="/#home" aria-label="logo" class="flex items-center space-x-2">
-            <img src="/logo.svg" alt="Tisura Logo" class="h-20 w-20" aria-hidden="true">
+            <img src="/logo.svg" alt="Tisura Logo" class="h-16 w-16" aria-hidden="true">
           </a>
         </div>
 
-        <!-- Center: Desktop Navigation Links (unchanged look) -->
-        <div class="hidden md:flex items-center space-x-8">
+        <!-- Center: Desktop Navigation Links -->
+        <div id="desktopNav" class="hidden space-x-10">
           {links.map(({to,label}) => (
-            <a href={to} class="text-primary dark:text-light-muted hover:text-white text-sm md:text-base font-medium">{label}</a>
+            <a href={to} class="text-primary dark:text-light-muted hover:text-white hover:scale-105 font-medium transition-transform duration-300">{label}</a>
           ))}
         </div>
 
@@ -114,12 +110,42 @@ const links = [
             </a>
           </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   </nav>
 </header>
 
+<style>
+  #toggle_nav:checked ~ div #hamburger #line { @apply translate-y-1.5 rotate-45; }
+  #toggle_nav:checked ~ div #hamburger #line2 { @apply -translate-y-1 -rotate-45; }
+  .toggled div:first-child { @apply translate-y-1.5 rotate-45; }
+  .toggled div:last-child  { @apply -translate-y-1 -rotate-45; }
+  
+  /* Hide nav by default, show only on home page */
+  #desktopNav {
+    display: none;
+  }
+  
+  #desktopNav.show {
+    display: flex;
+  }
+</style>
+
 <script is:inline>
+  function toggleNavVisibility() {
+    const desktopNav = document.getElementById('desktopNav');
+    if (!desktopNav) return;
+    
+    // Check if current path is home (/ or /#home or /#anything)
+    const isHome = window.location.pathname === '/' || window.location.pathname === '';
+    
+    if (isHome) {
+      desktopNav.classList.add('show');
+    } else {
+      desktopNav.classList.remove('show');
+    }
+  }
+
   function mountHamburger() {
     // ensure button exists (create it once)
     const right = document.querySelector('nav .absolute.right-0.flex');
@@ -156,13 +182,20 @@ const links = [
 
   // Run after DOM is ready (works on hard reload)
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', mountHamburger);
+    document.addEventListener('DOMContentLoaded', () => {
+      mountHamburger();
+      toggleNavVisibility();
+    });
   } else {
     mountHamburger();
+    toggleNavVisibility();
   }
 
   // If you use Astro's client-side transitions, also re-run on page load events:
-  window.addEventListener?.('astro:page-load', mountHamburger);
+  window.addEventListener?.('astro:page-load', () => {
+    mountHamburger();
+    toggleNavVisibility();
+  });
 </script>
 
 <style>

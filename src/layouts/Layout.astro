@@ -33,6 +33,16 @@ import AppHeader from "../components/AppHeader.astro";
 </html>
 
 <style>
+  /* Hide scrollbar for Chrome, Safari and Edge */
   html { scroll-behavior: smooth; }
+  html::-webkit-scrollbar {
+  display: none;
+  }
+
+  /* Hide scrollbar for Firefox */
+  html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and older Edge */
+  }
   body { margin: 0; }
 </style>
