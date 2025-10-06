@@ -1,5 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const TEXTS = {
+	headerTitle: "Certification et vérification<br>de documents",
+	headerSubtitle: "Simplifiez votre processus de certification",
+	demoVideo: "Demo Vidéo",
+	comingSoon: "Bientôt disponible",
+	ownerBtn: "Je veux vérifier un document",
+	ownerStep1: "Je reçois un document certifié",
+	ownerStep2: `Je vérifie le document sur <a href="https://dev.platform.tisura.xyz/" class="font-semibold text-blue-600 dark:text-blue-400" target="_blank">platform.tisura.xyz</a>`,
+	applicantBtn: "Je veux certifier un document",
+	applicantStep1: `Je télécharge l'extension <a href="https://chromewebstore.google.com/detail/tisura-redirector-esm/hoinkjfjaejeilfgnidgdogbhbiakgei" class="text-purple-600 dark:text-purple-400 font-medium cursor-pointer" target="_blank">Tisura</a>`,
+	applicantStep2: "Je visite les sites A, B, C pour télécharger les documents",
+	applicantStep3: "J'envoie les documents certifiés",
+	contactText: "En cas de bug, envoyez un email à ",
+	contactEmail: "contact@tisura.xyz"
+};
 ---
 
 <Layout title="Dossier Certifier">
@@ -7,10 +23,9 @@ import Layout from '../layouts/Layout.astro';
 		<div class="max-w-6xl mx-auto px-6 py-24">
 			<!-- Header with gradient text -->
 			<div class="text-center mb-20">
-				<h1 class="text-6xl font-bold mb-4 mt-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
-					Certification et vérification <br>de dossiers
+				<h1 class="text-6xl font-bold mb-4 mt-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent" set:html={TEXTS.headerTitle}>
 				</h1>
-				<p class="text-gray-600 dark:text-gray-400 text-lg mt-4">Simplifiez votre processus de certification</p>
+				<p class="text-gray-600 dark:text-gray-400 text-lg mt-4">{TEXTS.headerSubtitle}</p>
 			</div>
 
 			<!-- Demo Video Section -->
@@ -19,9 +34,9 @@ import Layout from '../layouts/Layout.astro';
 				<div class="relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-20 text-center backdrop-blur-xl">
 					<div class="flex items-center justify-center space-x-3 mb-4">
 						<div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-						<p class="text-gray-800 dark:text-gray-200 text-2xl font-medium">Demo Vidéo</p>
+						<p class="text-gray-800 dark:text-gray-200 text-2xl font-medium">{TEXTS.demoVideo}</p>
 					</div>
-					<p class="text-gray-500 dark:text-gray-400 text-sm">Bientôt disponible</p>
+					<p class="text-gray-500 dark:text-gray-400 text-sm">{TEXTS.comingSoon}</p>
 				</div>
 			</div>
 
@@ -38,7 +53,7 @@ import Layout from '../layouts/Layout.astro';
 							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
 							</svg>
-							<span>Je suis examinateur</span>
+							<span>{TEXTS.ownerBtn}</span>
 						</span>
 					</button>
 
@@ -49,11 +64,12 @@ import Layout from '../layouts/Layout.astro';
 								<div class="space-y-5">
 									<div class="flex items-start space-x-4 group/item">
 										<div class="flex-shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold group-hover/item:scale-110 transition-transform">1</div>
-										<p class="text-gray-700 dark:text-gray-300 pt-1">Je reçois des dossiers compressés des soumissionnaires</p>
+										<p class="text-gray-700 dark:text-gray-300 pt-1">{TEXTS.ownerStep1}</p>
 									</div>
 									<div class="flex items-start space-x-4 group/item">
 										<div class="flex-shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold group-hover/item:scale-110 transition-transform">2</div>
-										<p class="text-gray-700 dark:text-gray-300 pt-1">Je vérifie les documents sur <a href="https://dev.platform.tisura.xyz/" class="font-semibold text-blue-600 dark:text-blue-400" target="_blank">platform.tisura.xyz</a></p>
+										<p class="text-gray-700 dark:text-gray-300 pt-1" set:html={TEXTS.ownerStep2}>
+										</p>
 									</div>
 								</div>
 							</div>
@@ -69,7 +85,7 @@ import Layout from '../layouts/Layout.astro';
 							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
 							</svg>
-							<span>Je suis soumissionnaire</span>
+							<span>{TEXTS.applicantBtn}</span>
 						</span>
 					</button>
 
@@ -80,15 +96,16 @@ import Layout from '../layouts/Layout.astro';
 								<div class="space-y-5">
 									<div class="flex items-start space-x-4 group/item">
 										<div class="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400 font-bold group-hover/item:scale-110 transition-transform">1</div>
-										<p class="text-gray-700 dark:text-gray-300 pt-1">Je télécharger l'extension <a href="https://chromewebstore.google.com/detail/tisura-redirector-esm/hoinkjfjaejeilfgnidgdogbhbiakgei" class="text-purple-600 dark:text-purple-400 font-medium cursor-pointer" target="_blank">Tisura</a></p>
+										<p class="text-gray-700 dark:text-gray-300 pt-1" set:html={TEXTS.applicantStep1}>
+										</p>
 									</div>
 									<div class="flex items-start space-x-4 group/item">
 										<div class="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400 font-bold group-hover/item:scale-110 transition-transform">2</div>
-										<p class="text-gray-700 dark:text-gray-300 pt-1">Je me rends sur les sites A, B, C pour télécharger les documents</p>
+										<p class="text-gray-700 dark:text-gray-300 pt-1">{TEXTS.applicantStep2}</p>
 									</div>
 									<div class="flex items-start space-x-4 group/item">
 										<div class="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400 font-bold group-hover/item:scale-110 transition-transform">3</div>
-										<p class="text-gray-700 dark:text-gray-300 pt-1">J'envoie les fichiers compressés à l'examinateur</p>
+										<p class="text-gray-700 dark:text-gray-300 pt-1">{TEXTS.applicantStep3}</p>
 									</div>
 								</div>
 							</div>
@@ -103,8 +120,8 @@ import Layout from '../layouts/Layout.astro';
 					<svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
 					</svg>
-					<span class="text-gray-600 dark:text-gray-400">En cas de bug, envoyez un email à </span>
-					<a href="mailto:contact@tisura.xyz" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">contact@tisura.xyz</a>
+					<span class="text-gray-600 dark:text-gray-400">{TEXTS.contactText} </span>
+					<a href="mailto:contact@tisura.xyz" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">{TEXTS.contactEmail}</a>
 				</div>
 			</div>
 		</div>
