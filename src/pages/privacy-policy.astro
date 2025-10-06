@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+
+const effectiveDate = 'October 6, 2025';
+const title = 'Privacy Policy — Tisura';
+const description = 'How the Tisura Chrome extension collects and uses technical data to certify HTTPS sessions.';
+---
+
+<Layout>
+  <fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="/privacy-policy" />
+  </fragment>
+
+  <!-- Added pt-32 for top spacing (approx 8rem = 128px) -->
+  <section class="mx-auto max-w-3xl px-6 pt-32 pb-16 md:pt-40 md:pb-24 leading-relaxed">
+    <h1 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">Privacy Policy</h1>
+
+    <p class="mb-6">
+      The
+      <a
+        href="https://chromewebstore.google.com/detail/tisura-redirector-esm/hoinkjfjaejeilfgnidgdogbhbiakgei"
+        class="text-blue-600 dark:text-blue-400 hover:underline"
+      >
+        Tisura Chrome extension
+      </a>
+      collects limited technical data to enable its core functionality of certifying and verifying HTTPS communications.
+    </p>
+
+
+    <h2 class="text-xl font-semibold mt-10 mb-3">Data we collect</h2>
+    <ul class="list-disc pl-6 space-y-2">
+      <li>The <strong>IP address of the client</strong> (your device) sending a request.</li>
+      <li>The <strong>IP address of the server</strong> responding to that request.</li>
+      <li>
+        The <strong>encrypted HTTPS payloads</strong> exchanged between client and server.
+      </li>
+    </ul>
+
+    <h2 class="text-xl font-semibold mt-10 mb-3">Purpose of collection</h2>
+    <p class="mb-6">
+      These data are collected solely to generate cryptographic proofs of authenticity and integrity for HTTPS sessions.
+      We do not decrypt, analyze, or share the content of your communications.
+    </p>
+
+    <h2 class="text-xl font-semibold mt-10 mb-3">Data storage and sharing</h2>
+    <ul class="list-disc pl-6 space-y-2">
+      <li>Data are stored locally or on Tisura servers only for the time required to perform certification.</li>
+      <li>We do not sell, rent, or share any personal information with third parties.</li>
+    </ul>
+
+    <h2 class="text-xl font-semibold mt-10 mb-3">User control</h2>
+    <p class="mb-6">
+      You can stop all data collection by disabling or uninstalling the extension at any time.
+    </p>
+
+    <h2 class="text-xl font-semibold mt-10 mb-3">Contact</h2>
+    <p>
+      For questions about privacy or data handling, contact
+      <a class="underline hover:no-underline" href="mailto:contact@tisura.xyz">privacy@tisura.xyz</a>.
+    </p>
+  </section>
+</Layout>
