@@ -8,14 +8,15 @@ const TEXTS = {
 	comingSoon: "Bientôt disponible",
 	ownerBtn: "Je souhaite vérifier un document",
 	ownerStep1: "Je reçois un document certifié",
-	ownerStep2: `Je vérifie le document sur <a href="https://certify.tisura.xyz/" class="font-semibold text-blue-600 dark:text-blue-400" target="_blank">certify.tisura.xyz</a>`,
+	ownerStep2: `Je vérifie le document sur <a href="https://verify.tisura.xyz/" class="font-semibold text-blue-600 dark:text-blue-400" target="_blank">verify.tisura.xyz</a>`,
 	applicantBtn: "Je souhaite certifier un document",
-	applicantStep1: `Je télécharge l'extension <a href="https://chromewebstore.google.com/detail/tisura-redirector-esm/hoinkjfjaejeilfgnidgdogbhbiakgei" class="text-purple-600 dark:text-purple-400 font-medium cursor-pointer" target="_blank">Tisura</a>`,
-	applicantStep2: "Je visite les sites A, B, C pour télécharger les documents",
-	applicantStep3: "J'envoie les documents certifiés",
+	applicantStep1: `J'installe l'extension <a href="https://chromewebstore.google.com/detail/tisura-redirector-esm/hoinkjfjaejeilfgnidgdogbhbiakgei" class="text-purple-600 dark:text-purple-400 font-medium cursor-pointer" target="_blank">Tisura</a>.`,
+	applicantStep2: "Je télécharge et certifie mes documents.",
+	applicantStep3: "J'envoie mes documents certifiés.",
 	contactText: "En cas de bug, envoyez un email à ",
 	contactEmail: "contact@tisura.xyz"
 };
+const providers = ["DGFIP", "Ameli", "LCL", "Societe Generale", "Qonto", "Shine", "BoursoBank", "Digiposte", "Free", "TotalEnergies", "France Travail", "LinkedIn", "Gmail"];
 ---
 
 <Layout title="Dossier Certifier">
@@ -67,10 +68,27 @@ const TEXTS = {
 										<p class="text-gray-700 dark:text-gray-300 pt-1" set:html={TEXTS.applicantStep1}>
 										</p>
 									</div>
+
 									<div class="flex items-start space-x-4 group/item">
-										<div class="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400 font-bold group-hover/item:scale-110 transition-transform">2</div>
-										<p class="text-gray-700 dark:text-gray-300 pt-1">{TEXTS.applicantStep2}</p>
-									</div>
+                                        <div class="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400 font-bold group-hover/item:scale-110 transition-transform">2</div>
+
+                                        <div class="pt-1 flex-1">
+                                            <button id="toggleProviders" class="inline-flex items-center gap-2 group cursor-pointer select-none hover:text-purple-600">
+                                            <span>{TEXTS.applicantStep2}</span>
+                                            <svg id="arrowIcon" class="w-4 h-4 text-gray-500 transition-transform duration-300 transform group-hover:text-purple-500"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                            </button>
+
+                                            <ul
+                                            id="providersList"
+                                            class="hidden mt-3 ml-6 space-y-1 list-disc text-sm text-gray-600 dark:text-gray-400"
+                                            set:html={providers.map(p => `<li>${p}</li>`).join("")}>
+                                            </ul>
+                                        </div>
+                                    </div>
+
 									<div class="flex items-start space-x-4 group/item">
 										<div class="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400 font-bold group-hover/item:scale-110 transition-transform">3</div>
 										<p class="text-gray-700 dark:text-gray-300 pt-1">{TEXTS.applicantStep3}</p>
@@ -165,5 +183,14 @@ const TEXTS = {
 			applicantBtn.classList.add('bg-blue-500', 'text-white', 'border-blue-500');
 			ownerBtn?.classList.remove('bg-blue-500', 'text-white', 'border-blue-500');
 		});
+
+		const toggleBtn = document.getElementById("toggleProviders");
+        const providersList = document.getElementById("providersList");
+        const arrowIcon = document.getElementById("arrowIcon");
+
+        toggleBtn?.addEventListener("click", () => {
+          const hidden = providersList.classList.toggle("hidden");
+          arrowIcon.classList.toggle("rotate-90", !hidden); // needs "transform" on the SVG (already added)
+        });
 	</script>
 </Layout>
