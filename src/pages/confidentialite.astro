@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+
+const title = 'Politique de Confidentialité — Tisura';
+const description = 'Comment l’extension Chrome Tisura collecte et utilise des données techniques pour certifier des sessions HTTPS.';
+---
+
+<Layout>
+  <fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="/politique-confidentialite" />
+  </fragment>
+
+  <!-- Même espacement et largeur que la page en anglais -->
+  <section class="mx-auto max-w-3xl px-6 pt-32 pb-16 md:pt-40 md:pb-24 leading-relaxed">
+    <h1 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">Politique de Confidentialité</h1>
+
+    <p class="mb-6">
+      L’
+      <a
+        href="https://chromewebstore.google.com/detail/tisura-redirector-esm/hoinkjfjaejeilfgnidgdogbhbiakgei"
+        class="text-blue-600 dark:text-blue-400 hover:underline"
+      >
+        extension Chrome Tisura
+      </a>
+      collecte des <strong>données techniques limitées</strong> afin d’activer sa fonctionnalité principale&nbsp;: la certification et la vérification de communications HTTPS.
+    </p>
+
+    <p class="mb-6">
+      <strong>Responsable du traitement&nbsp;:</strong> Tisura détermine les finalités et les moyens
+      du traitement des données décrites ci-dessous. Pour toute question relative à la protection des données,
+      vous pouvez nous contacter à l’adresse&nbsp;
+      <a href="mailto:contact@tisura.xyz" class="underline hover:no-underline">contact@tisura.xyz</a>.
+    </p>
+
+    <h2 class="text-xl font-semibold mt-10 mb-3">Données que nous collectons</h2>
+    <ul class="list-disc pl-6 space-y-2">
+      <li>L’<strong>adresse IP du client</strong> (votre appareil) envoyant une requête.</li>
+      <li>L’<strong>adresse IP du serveur</strong> répondant à cette requête.</li>
+      <li>
+        Les <strong>paquets HTTPS chiffrés</strong> (contenu chiffré uniquement, jamais déchiffré) échangés entre le client et le serveur.
+      </li>
+    </ul>
+
+    <h2 class="text-xl font-semibold mt-10 mb-3">Finalité de la collecte</h2>
+    <p class="mb-6">
+      Ces données sont collectées uniquement pour générer des preuves cryptographiques d’<strong>authenticité</strong> et d’<strong>intégrité</strong>
+      des sessions HTTPS. Nous ne déchiffrons pas, n’analysons pas et ne partageons pas le contenu de vos communications.
+    </p>
+
+    <h2 class="text-xl font-semibold mt-10 mb-3">Conservation et partage des données</h2>
+    <ul class="list-disc pl-6 space-y-2">
+      <li>Les données sont conservées localement ou sur les serveurs de Tisura uniquement pendant la durée nécessaire à la certification.</li>
+      <li>Nous ne vendons, ne louons ni ne partageons aucune information personnelle avec des tiers.</li>
+    </ul>
+
+    <h2 class="text-xl font-semibold mt-10 mb-3">Contrôle par l’utilisateur</h2>
+    <p class="mb-6">
+      Vous pouvez arrêter toute collecte de données à tout moment en désactivant ou en désinstallant l’extension.
+    </p>
+
+    <h2 class="text-xl font-semibold mt-10 mb-3">Vos droits</h2>
+    <p class="mb-6">
+      Conformément à la législation applicable en matière de protection des données (telle que le RGPD),
+      vous disposez d’un droit d’accès, de rectification ou de suppression de vos données personnelles.
+      Pour exercer ces droits, contactez <a href="mailto:contact@tisura.xyz" class="underline hover:no-underline">contact@tisura.xyz</a>.
+    </p>
+
+    <h2 class="text-xl font-semibold mt-10 mb-3">Contact</h2>
+    <p>
+      Pour toute question relative à la confidentialité ou au traitement des données, contactez
+      <a class="underline hover:no-underline" href="mailto:contact@tisura.xyz">contact@tisura.xyz</a>.
+    </p>
+  </section>
+</Layout>
