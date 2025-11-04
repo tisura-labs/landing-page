@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 
 const TEXTS = {
 	headerTitle: "Certification et vérification<br>de documents",
-	headerSubtitle: "Simplifiez votre processus de certification",
 	demoVideo: "Demo Vidéo",
 	comingSoon: "Bientôt disponible",
 	ownerBtn: "Je souhaite vérifier un document",
@@ -13,10 +12,10 @@ const TEXTS = {
 	applicantStep1: `J'installe l'extension <a href="https://chromewebstore.google.com/detail/tisura-redirector-esm/hoinkjfjaejeilfgnidgdogbhbiakgei" class="text-purple-600 dark:text-purple-400 font-medium cursor-pointer" target="_blank">Tisura</a>.`,
 	applicantStep2: "Je télécharge et certifie mes documents.",
 	applicantStep3: "J'envoie mes documents certifiés.",
-	contactText: "En cas de bug, envoyez un email à ",
+	contactText: "Pour toute question, envoyez un email à ",
 	contactEmail: "contact@tisura.xyz"
 };
-const providers = ["DGFIP", "Ameli", "LCL", "Societe Generale", "Qonto", "Shine", "BoursoBank", "Digiposte", "Free", "TotalEnergies", "France Travail", "LinkedIn", "Gmail"];
+const providers = ["DGFIP", "Ameli", "LCL", "Société Générale", "Qonto", "Shine", "BoursoBank", "Digiposte", "Free", "TotalEnergies", "France Travail", "LinkedIn", "Gmail"];
 ---
 
 <Layout title="Dossier Certifier">
@@ -26,7 +25,6 @@ const providers = ["DGFIP", "Ameli", "LCL", "Societe Generale", "Qonto", "Shine"
 			<div class="text-center mb-20">
 				<h1 class="text-6xl font-bold mb-4 mt-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent" set:html={TEXTS.headerTitle}>
 				</h1>
-				<p class="text-gray-600 dark:text-gray-400 text-lg mt-4">{TEXTS.headerSubtitle}</p>
 			</div>
 
 			<!-- Demo Video Section -->
