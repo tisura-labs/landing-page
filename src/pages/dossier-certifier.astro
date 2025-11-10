@@ -16,6 +16,11 @@ const TEXTS = {
 	contactEmail: "contact@tisura.xyz"
 };
 const providers = ["DGFIP", "Ameli", "LCL", "Société Générale", "Qonto", "Shine", "BoursoBank", "Digiposte", "Free", "TotalEnergies", "France Travail", "LinkedIn", "Gmail"];
+
+const VIDEOS = {
+  applicant: "https://www.youtube.com/embed/VIDEO_ID_CERT?rel=0",
+  owner: "https://www.youtube.com/embed/VIDEO_ID_VERIFY?rel=0",
+};
 ---
 
 <Layout title="Dossier Certifier">
@@ -57,7 +62,24 @@ const providers = ["DGFIP", "Ameli", "LCL", "Société Générale", "Qonto", "Sh
 					</button>
 
 					<div id="applicantContent" class="hidden animate-fadeIn">
-						<div class="relative group/card">
+    					<div class="mb-10">
+                        <div class="relative group">
+                            <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
+                            <div class="relative bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-3">
+                            <div class="relative w-full pb-[56.25%] rounded-xl overflow-hidden">
+                                <iframe
+                                class="absolute inset-0 w-full h-full"
+                                src={VIDEOS.applicant}
+                                title="Démo — Certification de document"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                                ></iframe>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+    					<div class="relative group/card">
 							<div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-20 group-hover/card:opacity-30 transition duration-300"></div>
 							<div class="relative bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 backdrop-blur-xl">
 								<div class="space-y-5">
@@ -110,7 +132,24 @@ const providers = ["DGFIP", "Ameli", "LCL", "Société Générale", "Qonto", "Sh
 					</button>
 
 					<div id="ownerContent" class="hidden animate-fadeIn">
-						<div class="relative group/card">
+    					<div class="mb-10">
+                        <div class="relative group">
+                            <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
+                            <div class="relative bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-3">
+                            <div class="relative w-full pb-[56.25%] rounded-xl overflow-hidden">
+                                <iframe
+                                class="absolute inset-0 w-full h-full"
+                                src={VIDEOS.owner}
+                                title="Démo — Vérification de document"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                                ></iframe>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+    					<div class="relative group/card">
 							<div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur opacity-20 group-hover/card:opacity-30 transition duration-300"></div>
 							<div class="relative bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 backdrop-blur-xl">
 								<div class="space-y-5">
@@ -161,34 +200,50 @@ const providers = ["DGFIP", "Ameli", "LCL", "Société Générale", "Qonto", "Sh
 	</style>
 
 	<script>
-		const ownerBtn = document.getElementById('ownerBtn');
-		const applicantBtn = document.getElementById('applicantBtn');
-		const ownerContent = document.getElementById('ownerContent');
-		const applicantContent = document.getElementById('applicantContent');
+        const ownerBtn = document.getElementById('ownerBtn');
+        const applicantBtn = document.getElementById('applicantBtn');
+        const ownerContent = document.getElementById('ownerContent');
+        const applicantContent = document.getElementById('applicantContent');
 
-		ownerBtn?.addEventListener('click', () => {
-			ownerContent?.classList.remove('hidden');
-			ownerContent?.classList.add('mb-14');
-			applicantContent?.classList.add('hidden');
-			ownerBtn.classList.add('bg-blue-500', 'text-white', 'border-blue-500');
-			applicantBtn?.classList.remove('bg-blue-500', 'text-white', 'border-blue-500');
-		});
+        // Toggle function
+        function toggleSection(button, section, otherButton, otherSection, color) {
+          const isHidden = section.classList.contains('hidden');
 
-		applicantBtn?.addEventListener('click', () => {
-			applicantContent?.classList.remove('hidden');
-			applicantContent?.classList.add('mb-14');
-			ownerContent?.classList.add('hidden');
-			applicantBtn.classList.add('bg-blue-500', 'text-white', 'border-blue-500');
-			ownerBtn?.classList.remove('bg-blue-500', 'text-white', 'border-blue-500');
-		});
+          // Hide the other section
+          otherSection?.classList.add('hidden');
+          otherButton?.classList.remove('bg-blue-500', 'text-white', 'border-blue-500');
+          otherButton?.classList.remove('bg-purple-500', 'text-white', 'border-purple-500');
 
-		const toggleBtn = document.getElementById("toggleProviders");
+          // Toggle current section
+          if (isHidden) {
+            section.classList.remove('hidden');
+            section.classList.add('mb-14');
+            button.classList.add(`bg-${color}-500`, 'text-white', `border-${color}-500`);
+          } else {
+            section.classList.add('hidden');
+            button.classList.remove(`bg-${color}-500`, 'text-white', `border-${color}-500`);
+          }
+        }
+
+        ownerBtn?.addEventListener('click', () =>
+          toggleSection(ownerBtn, ownerContent, applicantBtn, applicantContent, 'blue')
+        );
+
+        applicantBtn?.addEventListener('click', () =>
+          toggleSection(applicantBtn, applicantContent, ownerBtn, ownerContent, 'purple')
+        );
+
+        // Provider toggle inside applicant section
+        const toggleBtn = document.getElementById("toggleProviders");
         const providersList = document.getElementById("providersList");
         const arrowIcon = document.getElementById("arrowIcon");
 
         toggleBtn?.addEventListener("click", () => {
           const hidden = providersList.classList.toggle("hidden");
-          arrowIcon.classList.toggle("rotate-90", !hidden); // needs "transform" on the SVG (already added)
+          arrowIcon.classList.toggle("rotate-90", !hidden);
         });
-	</script>
+      </script>
+
+
+
 </Layout>
