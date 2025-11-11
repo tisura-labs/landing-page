@@ -18,8 +18,9 @@ const TEXTS = {
 const providers = ["DGFIP", "Ameli", "LCL", "Société Générale", "Qonto", "Shine", "BoursoBank", "Digiposte", "Free", "TotalEnergies", "France Travail", "LinkedIn", "Gmail"];
 
 const VIDEOS = {
-  applicant: "https://www.youtube.com/embed/AsEb164cl8g?rel=0",
-  owner: "https://www.youtube.com/embed/mD1JxMWpPMc?rel=0",
+  applicant: "https://www.youtube.com/embed/AsEb164cl8g?rel=0&modestbranding=1",
+  owner: "https://www.youtube.com/embed/mD1JxMWpPMc?rel=0&modestbranding=1",
+  demo: "https://www.youtube.com/embed/nNy5jjgwFh4?rel=0&modestbranding=1"
 };
 ---
 
@@ -33,16 +34,21 @@ const VIDEOS = {
 			</div>
 
 			<!-- Demo Video Section -->
-			<div class="relative group mb-24 max-w-3xl mx-auto">
-				<div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
-				<div class="relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-20 text-center backdrop-blur-xl">
-					<div class="flex items-center justify-center space-x-3 mb-4">
-						<div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-						<p class="text-gray-800 dark:text-gray-200 text-2xl font-medium">{TEXTS.demoVideo}</p>
-					</div>
-					<p class="text-gray-500 dark:text-gray-400 text-sm">{TEXTS.comingSoon}</p>
-				</div>
-			</div>
+            <div class="relative group mb-24 max-w-3xl mx-auto">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
+                <div class="relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-3 backdrop-blur-xl">
+                    <div class="relative w-full pb-[56.25%] rounded-2xl overflow-hidden">
+                    <iframe
+                        class="absolute inset-0 w-full h-full"
+                        src={VIDEOS.demo}
+                        title="Démo — Tisura"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                    </div>
+                </div>
+            </div>
 
 			<!-- Two Column Layout -->
 			<div class="grid lg:grid-cols-2 gap-12 relative max-w-5xl mx-auto">
