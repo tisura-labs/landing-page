@@ -12,7 +12,7 @@ const TEXTS = {
 	applicantStep1: `J'installe l'extension <a href="https://chromewebstore.google.com/detail/tisura-redirector-esm/hoinkjfjaejeilfgnidgdogbhbiakgei" class="text-purple-600 dark:text-purple-400 font-medium cursor-pointer" target="_blank">Tisura</a>.`,
 	applicantStep2: "Je télécharge et certifie mes documents.",
 	applicantStep3: "J'envoie mes documents certifiés.",
-	contactText: "Pour toute question, envoyez un email à ",
+	contactText: "Pour toute autre question, envoyez un email à ",
 	contactEmail: "contact@tisura.xyz"
 };
 const providers = ["DGFIP", "Ameli", "LCL", "Société Générale", "Qonto", "Shine", "BoursoBank", "Digiposte", "Free", "TotalEnergies", "France Travail", "LinkedIn", "Gmail"];
@@ -175,6 +175,154 @@ const VIDEOS = {
 				</div>
 			</div>
 
+			<!-- FAQ Section -->
+            <section id="faq" class="max-w-4xl mx-auto mt-24">
+            <h2 class="text-3xl font-bold text-center mb-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+                Questions fréquentes
+            </h2>
+
+            <div id="faq-accordion" class="space-y-4">
+                <!-- Authenticité & intégrité -->
+                <details class="group relative rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 p-5 backdrop-blur-xl transition">
+                <summary class="cursor-pointer list-none flex items-start justify-between gap-6">
+                    <span class="text-base font-medium text-gray-900 dark:text-gray-100">
+                    Que signifie que Tisura garantit authenticité et intégrité ?
+                    </span>
+                    <span class="mt-1 shrink-0 transition group-open:rotate-90">
+                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                </summary>
+                <div class="mt-3 text-gray-700 dark:text-gray-300">
+                    <strong>Authenticité</strong> : le fichier présenté est bien celui délivré par le site source au moment du téléchargement.
+                    <strong>Intégrité</strong> : il n’a pas été modifié bit-à-bit. On le prouve par une comparaison cryptographique entre l’empreinte du fichier et la trace chiffrée capturée lors du téléchargement.
+                </div>
+                <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
+                </details>
+
+                <!-- Techno -->
+                <details class="group relative rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 p-5 backdrop-blur-xl transition">
+                <summary class="cursor-pointer list-none flex items-start justify-between gap-6">
+                    <span class="text-base font-medium text-gray-900 dark:text-gray-100">
+                    Quelle est la techno utilisée ?
+                    </span>
+                    <span class="mt-1 shrink-0 transition group-open:rotate-90">
+                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                </summary>
+                <div class="mt-3 text-gray-700 dark:text-gray-300">
+                    Tisura s’appuie sur <em>TLS session keys</em>, empreintes cryptographiques (ex. SHA-256) et comparaison déterministe
+                    entre le fichier fourni et la réponse HTTPS capturée lors du téléchargement via l’infrastructure Tisura.
+                    Pas d’IA : c’est une <strong>preuve cryptographique de provenance</strong>, pas une analyse du contenu.
+                </div>
+                <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
+                </details>
+
+                <!-- Accès aux données -->
+                <details class="group relative rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 p-5 backdrop-blur-xl transition">
+                <summary class="cursor-pointer list-none flex items-start justify-between gap-6">
+                    <span class="text-base font-medium text-gray-900 dark:text-gray-100">
+                    Est-ce que Tisura a accès à mes données téléchargées ?
+                    </span>
+                    <span class="mt-1 shrink-0 transition group-open:rotate-90">
+                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                </summary>
+                <div class="mt-3 text-gray-700 dark:text-gray-300">
+                    Non. Tisura ne lit pas le contenu du document. Nous conservons la <strong>réponse chiffrée</strong> et les métadonnées
+                    minimales nécessaires à la preuve, afin de comparer plus tard sans stocker le fichier en clair.
+                </div>
+                <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
+                </details>
+
+                <!-- Rétention -->
+                <details class="group relative rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 p-5 backdrop-blur-xl transition">
+                <summary class="cursor-pointer list-none flex items-start justify-between gap-6">
+                    <span class="text-base font-medium text-gray-900 dark:text-gray-100">
+                    Est-ce que Tisura conserve mes données ? Si oui, combien de temps ?
+                    </span>
+                    <span class="mt-1 shrink-0 transition group-open:rotate-90">
+                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                </summary>
+                <div class="mt-3 text-gray-700 dark:text-gray-300">
+                    Nous conservons uniquement ce qui est nécessaire à la vérification (traces chiffrées, empreintes, journaux techniques)
+                    sur une <strong>durée limitée à 7 jours</strong>. La rétention est <strong>configurable</strong> selon les besoins clients
+                    (ex. quelques mois). Suppression sur demande conforme RGPD.
+                </div>
+                <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
+                </details>
+
+                <!-- Types de documents -->
+                <details class="group relative rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 p-5 backdrop-blur-xl transition">
+                <summary class="cursor-pointer list-none flex items-start justify-between gap-6">
+                    <span class="text-base font-medium text-gray-900 dark:text-gray-100">
+                    Puis-je utiliser Tisura pour tous types de documents ?
+                    </span>
+                    <span class="mt-1 shrink-0 transition group-open:rotate-90">
+                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                </summary>
+                <div class="mt-3 text-gray-700 dark:text-gray-300">
+                    Tisura cible d’abord les <strong>PDF</strong> et <strong>JSON</strong> téléchargés via HTTPS depuis des sites officiels.
+                    D’autres formats pourront être ajoutés progressivement. La vérification fonctionne même si le fichier a été renommé.
+                </div>
+                <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
+                </details>
+
+                <!-- Activé en permanence ? -->
+                <details class="group relative rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 p-5 backdrop-blur-xl transition">
+                <summary class="cursor-pointer list-none flex items-start justify-between gap-6">
+                    <span class="text-base font-medium text-gray-900 dark:text-gray-100">
+                    Est-ce que le service est tout le temps actif ?
+                    </span>
+                    <span class="mt-1 shrink-0 transition group-open:rotate-90">
+                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                </summary>
+                <div class="mt-3 text-gray-700 dark:text-gray-300">
+                    Non. La certification ne s’active que lorsque vous l’initiez (extension + téléchargement via l’infra Tisura).
+                    En dehors de ces actions, rien n’est capturé.
+                </div>
+                <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
+                </details>
+
+                <!-- Compte -->
+                <details class="group relative rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 p-5 backdrop-blur-xl transition">
+                <summary class="cursor-pointer list-none flex items-start justify-between gap-6">
+                    <span class="text-base font-medium text-gray-900 dark:text-gray-100">
+                    Dois-je créer un compte ?
+                    </span>
+                    <span class="mt-1 shrink-0 transition group-open:rotate-90">
+                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                </summary>
+                <div class="mt-3 text-gray-700 dark:text-gray-300">
+                    <strong>Certification</strong> : installez l’extension Tisura et suivez les étapes ; pas d’inscription complexe.
+                    <strong>Vérification</strong> : pas de compte requis, vous uploadez le fichier et obtenez le résultat.
+                </div>
+                <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
+                </details>
+
+                <!-- Deepfakes -->
+                <details class="group relative rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 p-5 backdrop-blur-xl transition">
+                <summary class="cursor-pointer list-none flex items-start justify-between gap-6">
+                    <span class="text-base font-medium text-gray-900 dark:text-gray-100">
+                    Est-ce que Tisura détecte des deepfakes ?
+                    </span>
+                    <span class="mt-1 shrink-0 transition group-open:rotate-90">
+                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </span>
+                </summary>
+                <div class="mt-3 text-gray-700 dark:text-gray-300">
+                    Tisura peut être utilisé pour détecter toute modification d'un fichier, y compris les deepfakes. Nous prouvons la <strong>provenance</strong> et l’<strong>intégrité</strong> :
+                    un document est considéré fiable s’il correspond exactement à ce qui a été délivré par la source officielle.
+                </div>
+                <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
+                </details>
+            </div>
+            </section>
+
+
 			<!-- Contact Info -->
 			<div class="text-center mt-6">
 				<div class="inline-flex items-center space-x-2 px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700">
@@ -248,8 +396,14 @@ const VIDEOS = {
           const hidden = providersList.classList.toggle("hidden");
           arrowIcon.classList.toggle("rotate-90", !hidden);
         });
+
+        // FAQ accordion: keep one item open
+        document.getElementById('faq-accordion')?.addEventListener('toggle', (e) => {
+          const opened = e.target;
+          // if (opened?.tagName !== 'DETAILS' || !opened.open) return;
+          document.querySelectorAll('#faq-accordion details[open]').forEach(d => {
+            if (d !== opened) d.removeAttribute('open');
+          });
+        });
       </script>
-
-
-
 </Layout>
