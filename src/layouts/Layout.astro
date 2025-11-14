@@ -23,8 +23,10 @@ import AppHeader from "../components/AppHeader.astro";
     <slot name="head" />
   </head>
 
-  <body class="min-h-dvh antialiased bg-white text-slate-900 dark:bg-gray-900 dark:text-slate-100"
-        style="padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);">
+  <body
+    class="min-h-dvh w-full overflow-x-hidden antialiased bg-white text-slate-900 dark:bg-gray-900 dark:text-slate-100"
+    style="padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);"
+  >
     <AppHeader />
     <main class="w-full">
       <slot />

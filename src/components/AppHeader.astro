@@ -1,5 +1,6 @@
 ---
 import Container from "./Container.astro";
+
 const links = [
   { to: "/#solutions", label: "Solutions" },
   { to: "/#use-cases", label: "Use Cases" },
@@ -9,30 +10,134 @@ const links = [
 ];
 ---
 
-<header>
-  <nav class="absolute z-50 w-full pt-12 lg:border-transparent">
+<header class="relative z-50">
+  <nav class="w-full pt-4 md:pt-6">
     <Container>
-      <div class="flex items-center justify-center w-full relative">
+      <div class="flex items-center justify-between gap-4">
 
         <!-- Left: Logo -->
-        <div class="absolute left-0 flex items-center">
+        <div class="flex items-center flex-shrink-0">
           <a href="/#home" aria-label="logo" class="flex items-center space-x-2">
-            <img src="/logo_white.svg" alt="Tisura Logo" class="h-16 w-16 hidden dark:block" aria-hidden="true">
-            <img src="/logo_blue.svg" alt="Tisura Logo" class="h-16 w-16 block dark:hidden" aria-hidden="true">
+            <img
+              src="/logo_white.svg"
+              alt="Tisura Logo"
+              class="h-12 w-12 hidden dark:block"
+              aria-hidden="true"
+            />
+            <img
+              src="/logo_blue.svg"
+              alt="Tisura Logo"
+              class="h-12 w-12 block dark:hidden"
+              aria-hidden="true"
+            />
           </a>
         </div>
 
         <!-- Center: Desktop Navigation Links -->
-        <div id="desktopNav" class="hidden space-x-10">
-          {links.map(({to,label}) => (
-            <a href={to} class="text-primary dark:text-light-muted hover:text-white hover:scale-105 font-medium transition-transform duration-300">{label}</a>
+        <div
+          id="desktopNav"
+          class="hidden md:flex flex-1 items-center justify-center gap-8"
+        >
+          {links.map(({ to, label }) => (
+            <a
+              href={to}
+              class="text-primary dark:text-light-muted hover:text-white hover:scale-105 font-medium transition-transform duration-200"
+            >
+              {label}
+            </a>
           ))}
         </div>
 
-        <!-- Right: Desktop Social Icons + Mobile Hamburger -->
-        <div class="absolute right-0 flex items-center space-x-6">
-          <!-- desktop socials (your original SVGs) -->
-          <div class="hidden md:flex items-center space-x-6">
+        <!-- Right: Socials + Mobile Hamburger -->
+        <div class="flex items-center gap-4 flex-shrink-0">
+          <!-- Desktop socials -->
+          <div class="hidden lg:flex items-center space-x-4">
+            <a
+              href="https://x.com/tisura_labs"
+              class="text-gray-700 dark:text-light-muted hover:text-white transition"
+              aria-label="X"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+              </svg>
+            </a>
+            <a
+              href="https://discord.gg/RpNybhJVuC"
+              class="text-gray-700 dark:text-light-muted hover:text-white transition"
+              aria-label="Discord"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+                <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.05.05 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.6.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.599.05.05 0 0 0-.03.03.052.052 0 0 0 .003.037c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.107a.034.034 0 0 0-.02-.019ZM5.68 10.263c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm4.64 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+              </svg>
+            </a>
+            <a
+              href="https://github.com/tisura-labs"
+              class="text-gray-700 dark:text-light-muted hover:text-white transition"
+              aria-label="GitHub"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="20" height="20" class="w-6 h-6" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+            </a>
+            <a
+              href="https://medium.com/@tisura"
+              class="text-gray-700 dark:text-light-muted hover:text-white transition"
+              aria-label="Medium"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 16 16">
+                <path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8zm4.95 0c0 2.34-1.01 4.236-2.256 4.236-1.246 0-2.256-1.897-2.256-4.236 0-2.34 1.01-4.236 2.256-4.236 1.246 0 2.256 1.897 2.256 4.236zM16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795z"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/tisura-labs/"
+              class="text-gray-700 dark:text-light-muted hover:text-white transition"
+              aria-label="LinkedIn"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Mobile hamburger -->
+          <button
+            id="menuBtn"
+            class="md:hidden inline-flex items-center justify-center p-2 rounded-xl ring-1 ring-slate-200 dark:ring-slate-700"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </Container>
+
+    <!-- Mobile dropdown -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-black/5 dark:border-white/10 bg-white/90 dark:bg-gray-900/90 backdrop-blur">
+      <Container>
+        <div class="py-4 space-y-4">
+          <ul class="space-y-2">
+            {links.map(({ to, label }) => (
+              <li>
+                <a
+                  href={to}
+                  class="block py-2 font-medium text-primary dark:text-light-muted"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-3 flex flex-wrap items-center gap-4">
+            <!-- reuse same SVGs for mobile -->
             <a href="https://x.com/tisura_labs" class="text-gray-700 dark:text-light-muted hover:text-white transition" aria-label="X">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
                 <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
@@ -59,150 +164,37 @@ const links = [
               </svg>
             </a>
           </div>
-
-          <!-- mobile hamburger -->
-          <button id="menuBtn"
-                  class="md:hidden p-2 rounded-xl ring-1 ring-slate-200 dark:ring-slate-700"
-                  aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </button>
-        </div>
-
-      </div>
-    </Container>
-
-    <!-- Mobile dropdown (same links + your SVG icons) -->
-    <div id="mobileMenu" class="md:hidden hidden">
-      <Container>
-        <div class="mt-3 rounded-xl border border-black/5 dark:border-white/10 bg-white/90 dark:bg-gray-900/90 backdrop-blur p-4">
-          <ul class="space-y-2">
-            {links.map(({to,label}) => (
-              <li><a href={to} class="block py-2 font-medium text-primary dark:text-light-muted">{label}</a></li>
-            ))}
-          </ul>
-          <div class="mt-3 flex items-center gap-6">
-            <!-- reuse same SVGs for mobile -->
-            <a href="https://x.com/tisura_labs" class="text-gray-700 dark:text-light-muted hover:text-white transition" aria-label="X">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
-                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-              </svg>
-            </a>
-            <a href="https://discord.gg/RpNybhJVuC" class="text-gray-700 dark:text-light-muted hover:text-white transition" aria-label="Discord">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 16 16">
-                <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.05.05 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.6.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.599.05.05 0 0 0-.03.03.052.052 0 0 0 .003.037c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.107a.034.034 0 0 0-.02-.019ZM5.68 10.263c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm4.64 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
-              </svg>
-            </a>
-            <a href="https://github.com/tisura-labs" class="text-gray-700 dark:text-light-muted hover:text-white transition" aria-label="GitHub">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="20" height="20" class="w-6 h-6" viewBox="0 0 16 16">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-              </svg>
-            </a>
-            <a href="https://medium.com/@tisura" class="text-gray-700 dark:text-light-muted hover:text-white transition" aria-label="Medium">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 16 16">
-                <path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8zm4.95 0c0 2.34-1.01 4.236-2.256 4.236-1.246 0-2.256-1.897-2.256-4.236 0-2.34 1.01-4.236 2.256-4.236 1.246 0 2.256 1.897 2.256 4.236zM16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/company/tisura-labs/" class="text-gray-700 dark:text-light-muted hover:text-white transition" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-              </svg>
-            </a>
-          </div>
         </div>
       </Container>
     </div>
   </nav>
 </header>
 
-<style>
-  #toggle_nav:checked ~ div #hamburger #line { @apply translate-y-1.5 rotate-45; }
-  #toggle_nav:checked ~ div #hamburger #line2 { @apply -translate-y-1 -rotate-45; }
-  .toggled div:first-child { @apply translate-y-1.5 rotate-45; }
-  .toggled div:last-child  { @apply -translate-y-1 -rotate-45; }
-  
-  /* Hide nav by default, show only on home page */
-  #desktopNav {
-    display: none;
-  }
-  
-  #desktopNav.show {
-    display: flex;
-  }
-</style>
-
 <script is:inline>
-  function toggleNavVisibility() {
-    const desktopNav = document.getElementById('desktopNav');
-    if (!desktopNav) return;
-    
-    // Check if current path is home (/ or /#home or /#anything)
-    const isHome = window.location.pathname === '/' || window.location.pathname === '';
-    
-    if (isHome) {
-      desktopNav.classList.add('show');
-    } else {
-      desktopNav.classList.remove('show');
-    }
-  }
+  function setupNav() {
+    const btn = document.getElementById("menuBtn");
+    const menu = document.getElementById("mobileMenu");
+    if (!btn || !menu) return;
 
-  function mountHamburger() {
-    // ensure button exists (create it once)
-    const right = document.querySelector('nav .absolute.right-0.flex');
-    if (!right) return;
-
-    let btn = document.getElementById('menuBtn');
-    if (!btn) {
-      btn = document.createElement('button');
-      btn.id = 'menuBtn';
-      btn.className = 'md:hidden p-2 rounded-xl ring-1 ring-slate-200 dark:ring-slate-700';
-      btn.setAttribute('aria-label','Open menu');
-      btn.setAttribute('aria-expanded','false');
-      btn.setAttribute('aria-controls','mobileMenu');
-      btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
-      right.appendChild(btn);
-    }
-
-    const panel = document.getElementById('mobileMenu');
-
-    btn.addEventListener('click', () => {
-      if (!panel) return;
-      const isHidden = panel.classList.toggle('hidden');
-      btn.setAttribute('aria-expanded', String(!isHidden));
+    btn.addEventListener("click", () => {
+      const isHidden = menu.classList.toggle("hidden");
+      btn.setAttribute("aria-expanded", String(!isHidden));
     });
 
-    // close menu when a link inside it is clicked
-    panel?.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        panel.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
+    // Close menu when clicking a link
+    menu.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        btn.setAttribute("aria-expanded", "false");
       });
     });
   }
 
-  // Run after DOM is ready (works on hard reload)
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      mountHamburger();
-      toggleNavVisibility();
-    });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupNav);
   } else {
-    mountHamburger();
-    toggleNavVisibility();
+    setupNav();
   }
 
-  // If you use Astro's client-side transitions, also re-run on page load events:
-  window.addEventListener?.('astro:page-load', () => {
-    mountHamburger();
-    toggleNavVisibility();
-  });
+  window.addEventListener?.("astro:page-load", setupNav);
 </script>
-
-<style>
-  /* keep your original toggle styles (not used, but harmless) */
-  #toggle_nav:checked ~ div #hamburger #line { @apply translate-y-1.5 rotate-45; }
-  #toggle_nav:checked ~ div #hamburger #line2 { @apply -translate-y-1 -rotate-45; }
-  .toggled div:first-child { @apply translate-y-1.5 rotate-45; }
-  .toggled div:last-child  { @apply -translate-y-1 -rotate-45; }
-</style>
