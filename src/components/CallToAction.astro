@@ -9,7 +9,18 @@ import Container from "./Container.astro"
   </div>
   <Container>
     <div class="relative text-center space-y-8">
-      <img src="/logo.svg" alt="Tisura Logo" class="mx-auto h-20 w-20" />
+       <img
+            src="/logo_white.svg"
+            alt="Tisura Logo"
+            class="mx-auto h-48 w-auto hidden dark:block"
+            aria-hidden="true"
+        />
+        <img
+            src="/logo_blue.svg"
+            alt="Tisura Logo"
+            class="mx-auto h-48 w-auto block dark:hidden"
+            aria-hidden="true"
+        />
 
         <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-white">
           Build confidence into your workflows with automated data certification.
