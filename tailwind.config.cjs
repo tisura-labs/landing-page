@@ -415,6 +415,7 @@ module.exports = {
       DEFAULT: '1',
     },
     fontFamily: {
+      space: ['"Space Grotesk"', 'sans-serif'],
       sans: [
         'ui-sans-serif',
         'system-ui',

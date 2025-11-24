@@ -16,9 +16,14 @@ import AppHeader from "../components/AppHeader.astro";
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <AstroFont config={[{ src: [], name: "Urbanist", preload: true, display: "swap",
-      selector: "html", fallback: "sans-serif",
-      googleFontsURL: 'https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap' }]} />
+    <AstroFont config={[
+      { src: [], name: "Urbanist", preload: true, display: "swap",
+        selector: "html", fallback: "sans-serif",
+        googleFontsURL: 'https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap' },
+      { src: [], name: "Space Grotesk", preload: true, display: "swap",
+        selector: ".font-space", fallback: "sans-serif",
+        googleFontsURL: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap' }
+    ]} />
 
     <slot name="head" />
   </head>

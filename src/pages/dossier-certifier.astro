@@ -29,13 +29,12 @@ const VIDEOS = {
 		<div class="max-w-6xl mx-auto px-6 py-16">
 			<!-- Header with gradient text -->
 			<div class="text-center mb-10">
-				<h1 class="text-6xl font-bold mb-6 mt-8 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent" set:html={TEXTS.headerTitle}>
-				</h1>
+			    <h1 class="text-6xl font-bold mb-6 mt-8 text-gray-800 dark:text-white font-space" set:html={TEXTS.headerTitle}></h1>
 			</div>
 
 			<!-- Demo Video Section -->
             <div class="relative group mb-24 max-w-3xl mx-auto">
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
+                <div class="absolute -inset-1"></div>
                 <div class="relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-3 backdrop-blur-xl">
                     <div class="relative w-full pb-[56.25%] rounded-2xl overflow-hidden">
                     <iframe
@@ -177,10 +176,9 @@ const VIDEOS = {
 
 			<!-- FAQ Section -->
             <section id="faq" class="max-w-4xl mx-auto mt-24">
-            <h2 class="text-3xl font-bold text-center mb-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
-                Questions fréquentes
-            </h2>
-
+                <h2 class="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white font-space">
+                    Questions fréquentes
+                </h2>
             <div id="faq-accordion" class="space-y-4">
                 <!-- Authenticité & intégrité -->
                 <details class="group relative rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 p-5 backdrop-blur-xl transition">
