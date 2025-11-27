@@ -191,8 +191,16 @@ const VIDEOS = {
                     </span>
                 </summary>
                 <div class="mt-3 text-gray-700 dark:text-gray-300">
-                    <strong>Authenticité</strong> : le fichier présenté est bien celui délivré par le site source au moment du téléchargement.
-                    <strong>Intégrité</strong> : il n’a pas été modifié bit-à-bit. On le prouve par une comparaison cryptographique entre l’empreinte du fichier et la trace chiffrée capturée lors du téléchargement.
+                    <div class="mt-3 text-gray-700 dark:text-gray-300">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>
+                        <strong>Authenticité</strong> : le fichier présenté est bien celui délivré par le site source au moment du téléchargement.
+                        </li>
+                        <li>
+                        <strong>Intégrité</strong> : il n’a pas été modifié. On le prouve par une comparaison cryptographique entre l’empreinte du fichier et la trace chiffrée capturée lors du téléchargement.
+                        </li>
+                    </ul>
+                    </div>
                 </div>
                 <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
                 </details>
@@ -208,9 +216,20 @@ const VIDEOS = {
                     </span>
                 </summary>
                 <div class="mt-3 text-gray-700 dark:text-gray-300">
-                    Tisura s’appuie sur <em>TLS session keys</em>, empreintes cryptographiques (ex. SHA-256) et comparaison déterministe
-                    entre le fichier fourni et la réponse HTTPS capturée lors du téléchargement via l’infrastructure Tisura.
-                    Pas d’IA : c’est une <strong>preuve cryptographique de provenance</strong>, pas une analyse du contenu.
+                    Tisura s’appuie sur deux technologies :
+                    <div class="mt-3 text-gray-700 dark:text-gray-300">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>
+                        <em>TLS session keys</em>, empreintes cryptographiques (ex. SHA-256)
+                        </li>
+                        <li>
+                        et comparaison déterministe
+                        entre le fichier fourni et la réponse HTTPS capturée lors du téléchargement via l’infrastructure Tisura.
+                        </li>
+                    </ul>
+                    </div>    
+                    <br />                
+                    Tisura n'utilise pas d’IA : c’est une <strong>preuve cryptographique de provenance</strong>, pas une analyse du contenu. Votre vie privée est donc protégée.
                 </div>
                 <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
                 </details>
@@ -227,7 +246,7 @@ const VIDEOS = {
                 </summary>
                 <div class="mt-3 text-gray-700 dark:text-gray-300">
                     Non. Tisura ne lit pas le contenu du document. Nous conservons la <strong>réponse chiffrée</strong> et les métadonnées
-                    minimales nécessaires à la preuve, afin de comparer plus tard sans stocker le fichier en clair.
+                    minimales nécessaires à la preuve, afin de la comparer plus tard au document présenté par l'utilisateur.
                 </div>
                 <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
                 </details>
@@ -244,8 +263,8 @@ const VIDEOS = {
                 </summary>
                 <div class="mt-3 text-gray-700 dark:text-gray-300">
                     Nous conservons uniquement ce qui est nécessaire à la vérification (traces chiffrées, empreintes, journaux techniques)
-                    sur une <strong>durée limitée à 7 jours</strong>. La rétention est <strong>configurable</strong> selon les besoins clients
-                    (ex. quelques mois). Suppression sur demande conforme RGPD.
+                    sur une <strong>durée limitée à 7 jours</strong> calendaires après la certification du document. La rétention est <strong>configurable</strong> selon les besoins clients
+                    (ex. quelques mois).
                 </div>
                 <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
                 </details>
@@ -261,8 +280,8 @@ const VIDEOS = {
                     </span>
                 </summary>
                 <div class="mt-3 text-gray-700 dark:text-gray-300">
-                    Tisura cible d’abord les <strong>PDF</strong> et <strong>JSON</strong> téléchargés via HTTPS depuis des sites officiels.
-                    D’autres formats pourront être ajoutés progressivement. La vérification fonctionne même si le fichier a été renommé.
+                    Tisura cible d’abord les <strong>PDF</strong> et <strong>JSON</strong> téléchargés via HTTPS depuis des sites officiels - la liste est disponible sur le notaire digital.
+                    D’autres formats pourront être ajoutés progressivement. A noter que la vérification fonctionne même si le fichier a été renommé.
                 </div>
                 <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
                 </details>
@@ -278,8 +297,8 @@ const VIDEOS = {
                     </span>
                 </summary>
                 <div class="mt-3 text-gray-700 dark:text-gray-300">
-                    Non. La certification ne s’active que lorsque vous l’initiez (extension + téléchargement via l’infra Tisura).
-                    En dehors de ces actions, rien n’est capturé.
+                    Non. La certification ne s’active que lorsque vous l’initiez (extension activée + téléchargement via l’infra Tisura).
+                    En d’autres termes, si vous n’activez pas l’extension et/ou si vous ne téléchargez pas via l’extension, rien n’est capturé par Tisura.
                 </div>
                 <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
                 </details>
@@ -295,8 +314,17 @@ const VIDEOS = {
                     </span>
                 </summary>
                 <div class="mt-3 text-gray-700 dark:text-gray-300">
-                    <strong>Certification</strong> : installez l’extension Tisura et suivez les étapes ; pas d’inscription complexe.
-                    <strong>Vérification</strong> : pas de compte requis, vous uploadez le fichier et obtenez le résultat.
+                    <strong>Non.</strong>
+                    <div class="mt-3 text-gray-700 dark:text-gray-300">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>
+                        Pour la <strong>certification</strong>, il vous suffit d'installer l’extension Tisura et de suivre les étapes. Pas d’inscription complexe.
+                        </li>
+                        <li>
+                        Pour la <strong>vérification</strong>, pas de compte requis, vous uploadez le fichier et obtenez le résultat
+                        </li>
+                    </ul>
+                    </div>    
                 </div>
                 <div class="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur group-open:opacity-20 transition"></div>
                 </details>

@@ -1,16 +1,27 @@
 ---
 import Container from "./Container.astro";
 
-const links = [
+const allLinks = [
   { to: "/#solutions", label: "Solutions" },
   { to: "/#use-cases", label: "Use Cases" },
   { to: "/#features",  label: "Features" },
   { to: "https://tisura-docs.vercel.app/", label: "Documentation" },
   // { to: "https://tally.so/r/wM7kGp", label: "Contact" },
 ];
+
+const pathname = Astro.url.pathname;
+const isDossierCertifier = pathname === "/dossier-certifier" || pathname === "/dossier-certifier/";
+const bannerText = isDossierCertifier
+  ? "🎉 Plus de 2 000 documents déjà certifiés ! 🎉"
+  : "🎉 More than 2,000 documents already certified! 🎉";
+
+const links = isDossierCertifier ? [] : allLinks;
 ---
 
 <header class="relative z-50">
+  <div class="bg-primary text-white text-center text-sm font-medium py-2">
+    {bannerText}
+  </div>
   <nav class="w-full pt-4 md:pt-6">
     <Container>
       <div class="flex items-center justify-between gap-4">
