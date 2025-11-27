@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 
 const TEXTS = {
 	headerTitle: "Certification et vérification<br>de documents",
+	headerSubtitle: "Transmettre un dossier certifié n'a jamais été aussi simple !",
 	demoVideo: "Demo Vidéo",
 	comingSoon: "Bientôt disponible",
 	ownerBtn: "Je souhaite vérifier un document",
@@ -30,6 +31,7 @@ const VIDEOS = {
 			<!-- Header with gradient text -->
 			<div class="text-center mb-10">
 			    <h1 class="text-6xl font-bold mb-6 mt-8 text-gray-800 dark:text-white font-space" set:html={TEXTS.headerTitle}></h1>
+			    <p class="text-xl text-gray-600 dark:text-gray-300">{TEXTS.headerSubtitle}</p>
 			</div>
 
 			<!-- Demo Video Section -->
