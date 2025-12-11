@@ -11,11 +11,12 @@ const allLinks = [
 
 const pathname = Astro.url.pathname;
 const isDossierCertifier = pathname === "/dossier-certifier" || pathname === "/dossier-certifier/";
-const bannerText = isDossierCertifier
+const isMarketplace = pathname === "/marketplace" || pathname === "/marketplace/";
+const bannerText = isDossierCertifier || isMarketplace
   ? "🎉 Plus de 2 000 documents déjà certifiés ! 🎉"
   : "🎉 More than 2,000 documents already certified! 🎉";
 
-const links = isDossierCertifier ? [] : allLinks;
+const links = isDossierCertifier || isMarketplace ? [] : allLinks;
 ---
 
 <header class="relative z-50">
