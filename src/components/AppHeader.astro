@@ -10,11 +10,18 @@ const allLinks = [
 ];
 
 const pathname = Astro.url.pathname;
-const isDossierCertifier = pathname === "/dossier-certifier" || pathname === "/dossier-certifier/";
-const isMarketplace = pathname === "/marketplace" || pathname === "/marketplace/";
-const bannerText = isDossierCertifier || isMarketplace
-  ? "🎉 Plus de 2 000 documents déjà certifiés ! 🎉"
-  : "🎉 More than 2,000 documents already certified! 🎉";
+const isDossierCertifier = pathname.includes("/dossier-certifier");
+const isMarketplace = pathname.includes("/marketplace");
+
+const locale = Astro.currentLocale ?? "en";
+const bannerTranslations = {
+  en: "🎉 More than 2,000 documents already certified! 🎉",
+  fr: "🎉 Plus de 2 000 documents déjà certifiés ! 🎉",
+  de: "🎉 Mehr als 2.000 Dokumente bereits zertifiziert! 🎉",
+  es: "🎉 ¡Más de 2.000 documentos ya certificados! 🎉"
+};
+
+let bannerText = bannerTranslations[locale] || bannerTranslations.en;
 
 const links = isDossierCertifier || isMarketplace ? [] : allLinks;
 ---
@@ -25,7 +32,7 @@ const links = isDossierCertifier || isMarketplace ? [] : allLinks;
   </div>
   <nav class="w-full pt-4 md:pt-6">
     <Container>
-      <div class="flex items-center justify-between gap-4">
+      <div class="flex items-center justify-between gap-4">           
 
         <!-- Left: Logo -->
         <div class="flex items-center flex-shrink-0 -mt-4">

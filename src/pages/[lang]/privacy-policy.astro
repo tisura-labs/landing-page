@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { privacyPolicyTranslations } from '../../i18n/privacy-policy';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'fr' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'es' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const TEXTS = privacyPolicyTranslations[lang] || privacyPolicyTranslations['en'];
+---
+
+<Layout>
+  <fragment slot="head">
+    <title>{TEXTS.title}</title>
+    <meta name="description" content="How the Tisura Chrome extension collects and uses technical data to certify HTTPS sessions." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href={`/${lang}/privacy-policy`} />
+  </fragment>
+
+  <!-- Added pt-32 for top spacing (approx 8rem = 128px) -->
+  <section class="mx-auto max-w-3xl px-6 pt-32 pb-16 md:pt-40 md:pb-24 leading-relaxed">
+    <h1 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">{TEXTS.heading}</h1>
+
+    <p class="mb-6" set:html={TEXTS.intro}></p>
+
+    {TEXTS.sections.map((section) => (
+      <>
+        <h2 class="text-xl font-semibold mt-10 mb-3">{section.title}</h2>
+        <div class="mb-6" set:html={section.content}></div>
+      </>
+    ))}
+  </section>
+</Layout>

@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import Solutions from '../../components/Solutions.astro';
+import UseCases from '../../components/UseCases.astro';
+import Features from '../../components/Features.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import { landingTranslations } from '../../i18n/landing';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'fr' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'es' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const TEXTS = landingTranslations[lang] || landingTranslations['en'];
+---
+
+<Layout title="Tisura — Certified Internet Data">
+	<main class="space-y-40 mb-20">
+		<HeroSection text={TEXTS.hero} />
+		<Solutions text={TEXTS.solutions} />
+		<UseCases text={TEXTS.useCases} />
+		<Features text={TEXTS.features} />
+		<CallToAction text={TEXTS.cta} />
+	</main>
+</Layout>
