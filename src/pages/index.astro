@@ -1,18 +1,31 @@
 ---
-import Features from '../components/Features.astro';
-import HeroSection from '../components/HeroSection.astro';
-import Layout from '../layouts/Layout.astro';
-import Solutions from '../components/Solutions.astro';
-import UseCases from '../components/UseCases.astro';
-import CallToAction from '../components/CallToAction.astro';
 ---
-
-<Layout title="Welcome to Tisura.">
-	<main class="space-y-40 mb-20">
-		<HeroSection/>
-		<Solutions/>
-		<UseCases/>
-		<Features/>
-		<CallToAction/>
-	</main>
-</Layout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script is:inline>
+        // Available languages matching [lang]/index.astro pattern
+        const supportedLangs = ['en', 'fr', 'de', 'es'];
+        
+        // Get user's preferred language (first 2 chars)
+        const userLang = (navigator.language || navigator.userLanguage || 'en').substring(0, 2);
+        
+        // Determine target language (fallback to 'en')
+        const targetLang = supportedLangs.includes(userLang) ? userLang : 'en';
+        
+        // Redirect
+        window.location.replace(`/${targetLang}/`);
+    </script>
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=/en/">
+    </noscript>
+</head>
+<body class="bg-white dark:bg-gray-900 flex items-center justify-center min-h-screen">
+    <p class="text-gray-600 dark:text-gray-400 font-sans">
+        Redirecting to <a href="/en/" class="text-blue-600 hover:underline">/en/</a>...
+    </p>
+</body>
+</html>

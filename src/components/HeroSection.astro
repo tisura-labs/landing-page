@@ -1,5 +1,7 @@
 ---
 import Container from "./Container.astro"
+
+const { text } = Astro.props;
 ---
 
 <section id="home" class="relative min-h-[100svh] md:min-h-screen">
@@ -13,10 +15,10 @@ import Container from "./Container.astro"
     <div class="relative z-10 pt-64 ml-auto">
       <div class="lg:w-2/3 text-center mx-auto">
         <h1 class="text-gray-800 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl font-space">
-        Certify Internet data with <span class="text-primary dark:text-blue-400">Tisura</span>
+        {text?.titlePart1} <span class="text-primary dark:text-blue-400">{text?.titlePart2}</span>
         </h1>
         <p class="mt-6 text-gray-700 dark:text-light-muted text-lg md:text-xl font-normal">
-          Verify origin and content of your users’ data - automatically and cryptographically.
+          {text?.subtitle}
         </p>
 
         <!-- CTA Buttons -->
@@ -25,13 +27,13 @@ import Container from "./Container.astro"
             href="https://tally.so/r/mKZKaV"
             class="inline-block rounded-full bg-primary px-6 py-3 text-white font-medium text-lg transition hover:scale-105 hover:shadow-lg font-space"
           >
-            Request a Demo
+            {text?.requestDemo}
           </a>
           <a
             href="/#solutions"
             class="text-primary dark:text-light-muted hover:text-white hover:scale-105 font-medium text-base transition duration-300 font-space"
           >
-            See Solutions
+            {text?.seeSolutions}
           </a>
         </div>
       </div>
