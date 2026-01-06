@@ -1,16 +1,51 @@
 ---
 import { AstroFont } from 'astro-font';
 import AppHeader from "../components/AppHeader.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Tisura", 
+  description = "Tisura - Certify Internet data" 
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const currentLang = Astro.currentLocale || "en";
+const supportedLangs = ["en", "fr", "de", "es"];
+
+// Helper to generate alternate links
+function getAlternateLink(lang: string) {
+  // Replace the current language segment with the target language
+  // Assuming the URL structure is always /[lang]/... due to prefixDefaultLocale: true
+  // We'll replace the first path segment
+  const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+  
+  if (pathSegments.length > 0 && supportedLangs.includes(pathSegments[0])) {
+    pathSegments[0] = lang;
+    return new URL(`/${pathSegments.join('/')}/`, Astro.site);
+  }
+  
+  // Fallback if structure is unexpected
+  return new URL(`/${lang}${Astro.url.pathname}`, Astro.site);
+}
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="description" content="Tisura - Certify Internet data" />
-    <title>Tisura</title>
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <link rel="canonical" href={canonicalURL} />
+    {supportedLangs.map(lang => (
+      lang !== currentLang && <link rel="alternate" hreflang={lang} href={getAlternateLink(lang)} />
+    ))}
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
