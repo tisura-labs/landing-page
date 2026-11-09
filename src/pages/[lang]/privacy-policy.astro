@@ -17,10 +17,8 @@ const { lang } = Astro.params;
 const TEXTS = privacyPolicyTranslations[lang] || privacyPolicyTranslations['en'];
 ---
 
-<Layout>
+<Layout title={TEXTS.title} description="How T-Wallet and its Chrome extension handle your data.">
   <fragment slot="head">
-    <title>{TEXTS.title}</title>
-    <meta name="description" content="How the Tisura Chrome extension collects and uses technical data to certify HTTPS sessions." />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href={`/${lang}/privacy-policy`} />
   </fragment>
