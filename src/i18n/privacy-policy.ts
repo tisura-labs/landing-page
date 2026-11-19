@@ -6,7 +6,7 @@ export const privacyPolicyTranslations = {
     en: {
         title: "Privacy Policy — Tisura",
         heading: "Privacy Policy",
-        intro: `Last updated: November 9, 2026.<br>This policy covers T-Wallet (the web app) and the T-Wallet Chrome extension, both operated by Tisura. They let you import documents from official websites, certify that they are genuine, and share them with the people you choose.`,
+        intro: `Last updated: November 19, 2026.<br>This policy covers T-Wallet (the web app) and the Tisura Certifier Chrome extension, both operated by Tisura. They let you import documents from official websites, certify that they are genuine, and share them with the people you choose.`,
         sections: [
             {
                 title: "Data controller",
@@ -19,6 +19,8 @@ export const privacyPolicyTranslations = {
           <li><strong>Your documents and folder:</strong> encrypted in your browser before they reach our servers (end-to-end encryption). Tisura cannot read them.</li>
           <li><strong>Certification records:</strong> when you import a document, the extension downloads it from the provider's website through our relay. The connection stays encrypted end to end between your browser and the website. We store the encrypted exchange (ciphertext only) and our signature, so that anyone can later check where the document came from. We never decrypt it.</li>
           <li><strong>Session cookies of the provider's website:</strong> the extension uses them on your device to download the document with your existing session. They are only sent to that website, inside the encrypted connection. Tisura never stores or reads them.</li>
+          <li><strong>Emails you certify:</strong> on Gmail, the extension certifies the emails you choose in the same way. Tisura only keeps the encrypted exchange and never reads them.</li>
+          <li><strong>Success per website:</strong> after each import, the extension tells us which supported website it used and whether the import worked, without the document. This helps us fix websites that stop working.</li>
           <li><strong>IP address:</strong> read in memory only, to limit abuse (rate limiting). It is never logged or stored.</li>
         </ul>
         The extension only acts when you start an import from T-Wallet, and only on supported provider websites. It does not collect your browsing history or any data from other websites.`
@@ -65,7 +67,7 @@ export const privacyPolicyTranslations = {
     fr: {
         title: "Politique de confidentialité — Tisura",
         heading: "Politique de confidentialité",
-        intro: `Dernière mise à jour le 9 novembre 2026.<br>Cette politique concerne le T-Wallet (l'application web) et l'extension Chrome T-Wallet, tous deux édités par Tisura. Ils vous permettent d'importer vos documents depuis les sites officiels, de certifier leur authenticité et de les partager avec les personnes de votre choix.`,
+        intro: `Dernière mise à jour le 19 novembre 2026.<br>Cette politique concerne le T-Wallet (l'application web) et l'extension Chrome Tisura Certificateur, tous deux édités par Tisura. Ils vous permettent d'importer vos documents depuis les sites officiels, de certifier leur authenticité et de les partager avec les personnes de votre choix.`,
         sections: [
             {
                 title: "Responsable du traitement",
@@ -78,6 +80,8 @@ export const privacyPolicyTranslations = {
           <li><strong>Vos documents et votre dossier.</strong> Ils sont chiffrés dans votre navigateur avant d'arriver sur nos serveurs (chiffrement de bout en bout). Tisura ne peut pas les lire.</li>
           <li><strong>Les traces de certification.</strong> Quand vous importez un document, l'extension le télécharge depuis le site du fournisseur en passant par notre relais. La connexion reste chiffrée de bout en bout entre votre navigateur et le site. Nous conservons l'échange chiffré (sans jamais le déchiffrer) et notre signature, pour que chacun puisse vérifier plus tard d'où vient le document.</li>
           <li><strong>Les cookies de session du site du fournisseur.</strong> L'extension les utilise sur votre appareil pour télécharger le document avec votre session en cours. Ils ne sont envoyés qu'à ce site, dans la connexion chiffrée. Tisura ne les conserve pas et ne peut pas les lire.</li>
+          <li><strong>Les e-mails que vous certifiez.</strong> Sur Gmail, l'extension certifie de la même façon les e-mails que vous choisissez. Tisura ne conserve que l'échange chiffré et ne les lit jamais.</li>
+          <li><strong>Le résultat par site.</strong> Après chaque import, l'extension nous indique quel site pris en charge elle a utilisé et si l'import a réussi, sans le document. Cela nous permet de corriger les sites qui ne fonctionnent plus.</li>
           <li><strong>Votre adresse IP.</strong> Elle est lue en mémoire uniquement, pour limiter les abus. Elle n'est jamais enregistrée ni journalisée.</li>
         </ul>
         L'extension n'agit que lorsque vous lancez un import depuis le T-Wallet, et uniquement sur les sites des fournisseurs pris en charge. Elle ne collecte ni votre historique de navigation ni aucune donnée des autres sites.`
@@ -124,7 +128,7 @@ export const privacyPolicyTranslations = {
     de: {
         title: "Datenschutzerklärung — Tisura",
         heading: "Datenschutzerklärung",
-        intro: `Stand: 9. November 2026.<br>Diese Erklärung gilt für T-Wallet (die Web-App) und die Chrome-Erweiterung T-Wallet, beide betrieben von Tisura. Damit importieren Sie Dokumente von offiziellen Websites, belegen ihre Echtheit und teilen sie mit Personen Ihrer Wahl.`,
+        intro: `Stand: 19. November 2026.<br>Diese Erklärung gilt für T-Wallet (die Web-App) und die Chrome-Erweiterung Tisura Zertifizierer, beide betrieben von Tisura. Damit importieren Sie Dokumente von offiziellen Websites, belegen ihre Echtheit und teilen sie mit Personen Ihrer Wahl.`,
         sections: [
             {
                 title: "Verantwortlicher",
@@ -137,6 +141,8 @@ export const privacyPolicyTranslations = {
           <li><strong>Ihre Dokumente und Ihre Akte:</strong> werden in Ihrem Browser verschlüsselt, bevor sie unsere Server erreichen (Ende-zu-Ende-Verschlüsselung). Tisura kann sie nicht lesen.</li>
           <li><strong>Zertifizierungsdaten:</strong> Beim Import lädt die Erweiterung das Dokument über unser Relay von der Website des Anbieters herunter. Die Verbindung bleibt zwischen Ihrem Browser und der Website Ende-zu-Ende verschlüsselt. Wir speichern den verschlüsselten Austausch (nur Chiffretext) und unsere Signatur, damit jeder später die Herkunft des Dokuments prüfen kann. Wir entschlüsseln ihn nie.</li>
           <li><strong>Sitzungs-Cookies der Anbieter-Website:</strong> Die Erweiterung nutzt sie auf Ihrem Gerät, um das Dokument mit Ihrer bestehenden Sitzung herunterzuladen. Sie werden nur an diese Website gesendet, innerhalb der verschlüsselten Verbindung. Tisura speichert oder liest sie nie.</li>
+          <li><strong>E-Mails, die Sie zertifizieren:</strong> In Gmail zertifiziert die Erweiterung die von Ihnen gewählten E-Mails auf dieselbe Weise. Tisura speichert nur den verschlüsselten Austausch und liest sie nie.</li>
+          <li><strong>Ergebnis pro Website:</strong> Nach jedem Import teilt uns die Erweiterung mit, welche unterstützte Website sie genutzt hat und ob der Import funktioniert hat, ohne das Dokument. So können wir Websites reparieren, die nicht mehr funktionieren.</li>
           <li><strong>IP-Adresse:</strong> wird nur im Arbeitsspeicher gelesen, um Missbrauch zu begrenzen. Sie wird nie protokolliert oder gespeichert.</li>
         </ul>
         Die Erweiterung wird nur aktiv, wenn Sie einen Import in T-Wallet starten, und nur auf unterstützten Anbieter-Websites. Sie erfasst weder Ihren Browserverlauf noch Daten anderer Websites.`
@@ -183,7 +189,7 @@ export const privacyPolicyTranslations = {
     es: {
         title: "Política de privacidad — Tisura",
         heading: "Política de privacidad",
-        intro: `Última actualización: 9 de noviembre de 2026.<br>Esta política se aplica a T-Wallet (la aplicación web) y a la extensión de Chrome T-Wallet, ambas gestionadas por Tisura. Le permiten importar documentos desde sitios oficiales, certificar su autenticidad y compartirlos con las personas que elija.`,
+        intro: `Última actualización: 19 de noviembre de 2026.<br>Esta política se aplica a T-Wallet (la aplicación web) y a la extensión de Chrome Tisura Certificador, ambas gestionadas por Tisura. Le permiten importar documentos desde sitios oficiales, certificar su autenticidad y compartirlos con las personas que elija.`,
         sections: [
             {
                 title: "Responsable del tratamiento",
@@ -196,6 +202,8 @@ export const privacyPolicyTranslations = {
           <li><strong>Sus documentos y su expediente:</strong> se cifran en su navegador antes de llegar a nuestros servidores (cifrado de extremo a extremo). Tisura no puede leerlos.</li>
           <li><strong>Registros de certificación:</strong> al importar un documento, la extensión lo descarga del sitio del proveedor a través de nuestro relé. La conexión sigue cifrada de extremo a extremo entre su navegador y el sitio. Guardamos el intercambio cifrado (solo texto cifrado) y nuestra firma, para que cualquiera pueda comprobar después de dónde procede el documento. Nunca lo desciframos.</li>
           <li><strong>Cookies de sesión del sitio del proveedor:</strong> la extensión las usa en su dispositivo para descargar el documento con su sesión abierta. Solo se envían a ese sitio, dentro de la conexión cifrada. Tisura nunca las guarda ni las lee.</li>
+          <li><strong>Correos que certifica:</strong> en Gmail, la extensión certifica del mismo modo los correos que usted elige. Tisura solo guarda el intercambio cifrado y nunca los lee.</li>
+          <li><strong>Resultado por sitio:</strong> tras cada importación, la extensión nos indica qué sitio compatible usó y si la importación funcionó, sin el documento. Así podemos corregir los sitios que dejan de funcionar.</li>
           <li><strong>Dirección IP:</strong> se lee solo en memoria, para limitar abusos. Nunca se registra ni se guarda.</li>
         </ul>
         La extensión solo actúa cuando inicia una importación desde T-Wallet, y solo en los sitios de proveedores compatibles. No recopila su historial de navegación ni datos de otros sitios.`
